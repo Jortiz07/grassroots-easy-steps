@@ -12,7 +12,7 @@ This app be able to take addresses from a file/user-input and find the shortest 
 * Low Budget Politicians trying to collect enough signatures to join a future race.
 * Community members trying to gather signatures for "X" event.
 
-## External services/data
+## External services
 
 * Google Maps API
 * TomTom API
