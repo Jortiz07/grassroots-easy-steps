@@ -20,3 +20,6 @@ Users would be able to export a file with a list of houses visited and the respo
 * Google Maps API
 * TomTom API
 * LocationIQ API
+
+
+[User stories](user-stories.md)
