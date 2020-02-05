@@ -21,5 +21,9 @@ Users would be able to export a file with a list of houses visited and the respo
 * TomTom API
 * LocationIQ API
 
+## Design documentation
+
+### [Wireframe diagram](wireframe.md)
+
 
 [User stories](user-stories.md)
