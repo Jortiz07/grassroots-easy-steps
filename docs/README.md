@@ -12,15 +12,19 @@ Users would be able to export a file with a list of houses visited and the respo
 
 * Local grassroots organizers (specially in rural areas).
 * Community outreach groups.
-* Low Budget Politicians trying to collect enough signatures to join a future race.
-* Community members trying to gather signatures for "X" event.
+* Local Politicians trying to collect enough signatures to be on the ballot.
+* Local delivery services who don't have their own navigation system.
 
 ### [User stories](user-stories.md)
 
 ## External services
 
-* Google Maps API
-* TomTom API
+* [TomTom Map API](https://developer.tomtom.com/maps-api)
+
+* [TomTom Search API](https://developer.tomtom.com/search-api)
+
+* [TomTom Routing API](https://developer.tomtom.com/routing-api)
+    
 * LocationIQ API
 
 ## Design documentation
