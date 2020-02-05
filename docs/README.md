@@ -15,6 +15,8 @@ Users would be able to export a file with a list of houses visited and the respo
 * Low Budget Politicians trying to collect enough signatures to join a future race.
 * Community members trying to gather signatures for "X" event.
 
+[User stories](user-stories.md)
+
 ## External services
 
 * Google Maps API
@@ -26,4 +28,3 @@ Users would be able to export a file with a list of houses visited and the respo
 ### [Wireframe diagram](wireframe.md)
 
 
-[User stories](user-stories.md)
