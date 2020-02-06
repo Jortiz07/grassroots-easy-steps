@@ -19,17 +19,20 @@ Users would be able to save routes and or export a file with a list of houses vi
 
 ## External services
 
-* TomTom Map API [API Info](https://developer.tomtom.com/maps-api)
+* TomTom Map API :
   Provides map titles for the app and zoom functionality.
   Without it our map titles wont be displayed.
+  [API Info](https://developer.tomtom.com/maps-api)
 
-* TomTom Search API [API Info](https://developer.tomtom.com/search-api)
+* TomTom Search API :
    Provide the address search feature.
    Without it we will not be able to track addresses.
+   [API Info](https://developer.tomtom.com/search-api)
 
-* TomTom Routing API [API Info](https://developer.tomtom.com/routing-api)
+* TomTom Routing API :
    Allows the app to route from point A-Z.
    Without it the app will not be able to create the a route to visit the addresses given efficiently.
+   [API Info](https://developer.tomtom.com/routing-api)
    
 [Alternatives](alternative.md)
 
