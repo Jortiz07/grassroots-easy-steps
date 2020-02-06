@@ -6,7 +6,7 @@ It will also allow group members to add flags (No soliciting, Dogs, etc) to hous
 
 Group members will also be able to track houses previously visited to avoid repeated visits.
 
-Users would be able to export a file with a list of houses visited and the response perceived from the encounter.
+Users would be able to save routes and or export a file with a list of houses visited and the response perceived from the encounter.
 
 ## Intended users
 
@@ -19,13 +19,17 @@ Users would be able to export a file with a list of houses visited and the respo
 
 ## External services
 
-* [TomTom Map API](https://developer.tomtom.com/maps-api)
+* TomTom Map API [API Info](https://developer.tomtom.com/maps-api)
+  Provides map titles for the app and zoom functionality.
 
-* [TomTom Search API](https://developer.tomtom.com/search-api)
+* TomTom Search API [API Info](https://developer.tomtom.com/search-api)
+   Provide the address search feature. 
 
-* [TomTom Routing API](https://developer.tomtom.com/routing-api)
-    
-* LocationIQ API
+* TomTom Routing API [API Info](https://developer.tomtom.com/routing-api)
+   Allows the app to route from point A-Z.
+   
+[Alternatives](alternative.md)
+
 
 ## Design documentation
 
