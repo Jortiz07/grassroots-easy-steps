@@ -15,10 +15,10 @@ import java.util.List;
 @Dao
 public interface HouseDao {
 
-  @Insert(onConflict = OnConflictStrategy.IGNORE)
+  @Insert
   Single<Long> insert(House house);
 
-  @Insert(onConflict = OnConflictStrategy.IGNORE)
+  @Insert
   Single<List<Long>> insert(Collection<House> houses);
 
   @Update

@@ -1,0 +1,224 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "d3d976f4ca861927c8f745f48b7bc807",
+    "entities": [
+      {
+        "tableName": "House",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`house_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `zip_code` INTEGER NOT NULL, `resident_name` TEXT COLLATE NOCASE, `party_affiliation` TEXT COLLATE NOCASE, `address` TEXT COLLATE NOCASE, `date` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "house_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "zipCode",
+            "columnName": "zip_code",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "residentName",
+            "columnName": "resident_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "partyAffiliation",
+            "columnName": "party_affiliation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "date",
+            "columnName": "date",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "house_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_House_address",
+            "unique": true,
+            "columnNames": [
+              "address"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_House_address` ON `${TABLE_NAME}` (`address`)"
+          },
+          {
+            "name": "index_House_resident_name",
+            "unique": true,
+            "columnNames": [
+              "resident_name"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_House_resident_name` ON `${TABLE_NAME}` (`resident_name`)"
+          },
+          {
+            "name": "index_House_zip_code",
+            "unique": false,
+            "columnNames": [
+              "zip_code"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_House_zip_code` ON `${TABLE_NAME}` (`zip_code`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Voter",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`voter_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `house_id` INTEGER NOT NULL, `coordinates` REAL NOT NULL, `time_stamp` INTEGER, `name` TEXT COLLATE NOCASE, `political_agenda` TEXT COLLATE NOCASE, `questions` TEXT COLLATE NOCASE, `support` INTEGER NOT NULL, `dog` INTEGER NOT NULL, `soliciting_sign` INTEGER NOT NULL, FOREIGN KEY(`house_id`) REFERENCES `House`(`house_id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "voterId",
+            "columnName": "voter_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "houseId",
+            "columnName": "house_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "coordinates",
+            "columnName": "coordinates",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timeStamp",
+            "columnName": "time_stamp",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "politicalAgenda",
+            "columnName": "political_agenda",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "questions",
+            "columnName": "questions",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "support",
+            "columnName": "support",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dog",
+            "columnName": "dog",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "solicitingSign",
+            "columnName": "soliciting_sign",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "voter_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Voter_name",
+            "unique": true,
+            "columnNames": [
+              "name"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_Voter_name` ON `${TABLE_NAME}` (`name`)"
+          },
+          {
+            "name": "index_Voter_house_id",
+            "unique": false,
+            "columnNames": [
+              "house_id"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Voter_house_id` ON `${TABLE_NAME}` (`house_id`)"
+          },
+          {
+            "name": "index_Voter_time_stamp",
+            "unique": false,
+            "columnNames": [
+              "time_stamp"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Voter_time_stamp` ON `${TABLE_NAME}` (`time_stamp`)"
+          },
+          {
+            "name": "index_Voter_support",
+            "unique": false,
+            "columnNames": [
+              "support"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Voter_support` ON `${TABLE_NAME}` (`support`)"
+          },
+          {
+            "name": "index_Voter_dog",
+            "unique": false,
+            "columnNames": [
+              "dog"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Voter_dog` ON `${TABLE_NAME}` (`dog`)"
+          },
+          {
+            "name": "index_Voter_soliciting_sign",
+            "unique": false,
+            "columnNames": [
+              "soliciting_sign"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_Voter_soliciting_sign` ON `${TABLE_NAME}` (`soliciting_sign`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "House",
+            "onDelete": "RESTRICT",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "house_id"
+            ],
+            "referencedColumns": [
+              "house_id"
+            ]
+          }
+        ]
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd3d976f4ca861927c8f745f48b7bc807')"
+    ]
+  }
+}

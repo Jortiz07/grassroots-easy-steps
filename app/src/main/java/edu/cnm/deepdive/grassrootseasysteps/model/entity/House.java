@@ -18,7 +18,7 @@ public class House {
   @PrimaryKey(autoGenerate = true)
   private long id;
 
-  @ColumnInfo(name = "zip_code")
+  @ColumnInfo(name = "zip_code", index = true)
   private long zipCode;
 
   @ColumnInfo(name = "resident_name", collate = ColumnInfo.NOCASE)
