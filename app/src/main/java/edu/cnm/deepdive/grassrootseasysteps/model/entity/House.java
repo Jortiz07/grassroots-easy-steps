@@ -30,7 +30,8 @@ public class House {
   @ColumnInfo(collate = ColumnInfo.NOCASE)
   private String address;
 
-  private Date date;
+
+  private Date date = new Date();
 
   public long getZipCode() {
     return zipCode;

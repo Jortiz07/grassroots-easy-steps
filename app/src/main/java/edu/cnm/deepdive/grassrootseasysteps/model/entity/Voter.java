@@ -16,7 +16,8 @@ import java.util.Date;
             onDelete = ForeignKey.RESTRICT
         )
     }, indices = {
-    @Index(value = "name", unique = true)
+    @Index(value = "name", unique = true),
+    @Index(value = "house_id")
 }
 
 )
