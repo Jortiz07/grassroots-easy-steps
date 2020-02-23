@@ -28,11 +28,11 @@
 
     <meta-data
       android:name="OnlineSearch.Key"
-      android:value="awXrRGHM4SEDLaOJBHM07E3sbdXG9i7i"/>
+      android:value="undefined"/>
     <meta-data android:name="OnlineMaps.Key"
-      android:value="awXrRGHM4SEDLaOJBHM07E3sbdXG9i7i" />
+      android:value="undefined" />
     <meta-data android:name="OnlineRouting.Key"
-      android:value="awXrRGHM4SEDLaOJBHM07E3sbdXG9i7i" />
+      android:value="undefined" />
 
   </application>
 
