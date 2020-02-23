@@ -4,4 +4,6 @@
   <string name="title_dashboard">Dashboard</string>
   <string name="title_notifications">Notifications</string>
   <string name="title_activity_main">Grassroots Easy Steps</string>
+  <string name="geocode_no_results">No geocoder results. Choose different location and try again.</string>
+  <string name="api_response_error">API response error: \'%1$s\'.</string>
 </resources>

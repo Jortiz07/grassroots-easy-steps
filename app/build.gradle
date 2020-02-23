@@ -1,5 +1,12 @@
 apply plugin: 'com.android.application'
 
+
+def getProperty (String propertyFile, String propertyName) {
+    Properties properties = new Properties();
+    properties.load(new FileInputStream(propertyFile));
+    return String.format("\"%s\"", properties.getProperty(propertyName));
+}
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -10,6 +17,8 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "API_KEY",
+                getProperty("$projectDir/../../../services/tomtom.properties", "api_key")
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
