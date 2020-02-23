@@ -27,7 +27,7 @@ public class Voter {
   @PrimaryKey(autoGenerate = true)
   private long voterId;
 
-  @ColumnInfo(name = "house_id", index = true)
+  @ColumnInfo(name = "house_id")
   private long houseId;
 
   private double coordinates;
