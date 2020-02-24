@@ -30,10 +30,12 @@ public class Voter {
   @ColumnInfo(name = "house_id")
   private long houseId;
 
-  private double coordinates;
+  private double latitude;
+
+  private double longitude;
 
   @ColumnInfo(name = "time_stamp", index = true)
-  private Date timeStamp;
+  private Date timeStamp = new Date();
 
   @ColumnInfo(collate = ColumnInfo.NOCASE)
   private String name;
@@ -42,7 +44,7 @@ public class Voter {
   private String politicalAgenda;
 
   @ColumnInfo(collate = ColumnInfo.NOCASE)
-  private String questions;
+  private String question;
 
   @ColumnInfo(index = true)
   private boolean support;
@@ -69,13 +71,20 @@ public class Voter {
     this.timeStamp = timeStamp;
   }
 
-
-  public double getCoordinates() {
-    return coordinates;
+  public double getLatitude() {
+    return latitude;
   }
 
-  public void setCoordinates(double coordinates) {
-    this.coordinates = coordinates;
+  public void setLatitude(double latitude) {
+    this.latitude = latitude;
+  }
+
+  public double getLongitude() {
+    return longitude;
+  }
+
+  public void setLongitude(double longitude) {
+    this.longitude = longitude;
   }
 
   public String getPoliticalAgenda() {
@@ -86,12 +95,12 @@ public class Voter {
     this.politicalAgenda = politicalAgenda;
   }
 
-  public String getQuestions() {
-    return questions;
+  public String getQuestion() {
+    return question;
   }
 
-  public void setQuestions(String questions) {
-    this.questions = questions;
+  public void setQuestion(String question) {
+    this.question = question;
   }
 
   public boolean isSupport() {

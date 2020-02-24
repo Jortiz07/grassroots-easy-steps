@@ -33,6 +33,7 @@ import com.tomtom.online.sdk.search.SearchApi;
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchQuery;
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchQueryBuilder;
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchResponse;
+import edu.cnm.deepdive.grassrootseasysteps.BuildConfig;
 import edu.cnm.deepdive.grassrootseasysteps.R;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -176,8 +177,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
       MapFragment mapFragment = (MapFragment) getSupportFragmentManager()
           .findFragmentById(R.id.mapFragment);
       mapFragment.getAsyncMap(this);
-      searchApi = OnlineSearchApi.create(this);
-      routingApi = OnlineRoutingApi.create(this);
+      searchApi = OnlineSearchApi.create(this, BuildConfig.API_KEY);
+      routingApi = OnlineRoutingApi.create(this, BuildConfig.API_KEY);
     }
 
     private void initUIViews() {

@@ -24,14 +24,14 @@ public class House {
   @ColumnInfo(name = "resident_name", collate = ColumnInfo.NOCASE)
   private String residentName;
 
-  @ColumnInfo(name = "party_affiliation", collate = ColumnInfo.NOCASE)
+  @ColumnInfo(name = "party_affiliation", collate = ColumnInfo.NOCASE, index = true)
   private String partyAffiliation;
 
   @ColumnInfo(collate = ColumnInfo.NOCASE)
   private String address;
 
-
-  private Date date = new Date();
+  @ColumnInfo(name = "visit_date")
+  private Date visitDate = new Date();
 
   public long getZipCode() {
     return zipCode;
@@ -57,12 +57,12 @@ public class House {
     this.address = address;
   }
 
-  public Date getDate() {
-    return date;
+  public Date getVisitDate() {
+    return visitDate;
   }
 
-  public void setDate(Date date) {
-    this.date = date;
+  public void setVisitDate(Date visitDate) {
+    this.visitDate = visitDate;
   }
 
   public String getResidentName() {

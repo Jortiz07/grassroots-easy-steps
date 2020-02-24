@@ -1,6 +1,6 @@
 ## User stories
 
-* The young college student who decided to help his friend collect enough signatures so he can qualify
+* The young college student who decided to help his friend collect signatures so he can qualify
  for the next election and is tired of wasting time figuring out the most efficient way to visit every address given to him.
  
 * The bread delivery woman who was given a new route in an area of town she is unfamiliar with and wants to avoid

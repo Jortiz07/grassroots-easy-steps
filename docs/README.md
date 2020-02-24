@@ -1,6 +1,6 @@
 ## Description
 
-This app be able to take addresses from a file/user-input and find the shortest route to make canvassing more efficient.
+This app is able to take addresses from a file/user-input and find the shortest route to all the addresses specified to make traveling to those locations more efficient.
 
 It will also allow group members to add flags (No soliciting, Dogs, etc) to houses for future reference and or exclusion.
 
