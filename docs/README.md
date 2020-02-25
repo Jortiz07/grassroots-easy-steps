@@ -43,6 +43,16 @@ Users would be able to save routes and or export a file with a list of houses vi
 
 ### [Entity-relationship diagram](erd.md)
 
+## Implementation
 
+### [Data definition language (DDL)](ddl.md)
 
+# Entity and DAO classes
 
+### [House.java](https://github.com/Jortiz07/grassroots-easy-steps/blob/master/app/src/main/java/edu/cnm/deepdive/grassrootseasysteps/model/entity/House.java)
+
+### [Voter.java](https://github.com/Jortiz07/grassroots-easy-steps/blob/master/app/src/main/java/edu/cnm/deepdive/grassrootseasysteps/model/entity/Voter.java)
+
+### [HouseDao.java](https://github.com/Jortiz07/grassroots-easy-steps/blob/master/app/src/main/java/edu/cnm/deepdive/grassrootseasysteps/model/dao/HouseDao.java)
+
+### [VoterDao.java](https://github.com/Jortiz07/grassroots-easy-steps/blob/master/app/src/main/java/edu/cnm/deepdive/grassrootseasysteps/model/dao/VoterDao.java)

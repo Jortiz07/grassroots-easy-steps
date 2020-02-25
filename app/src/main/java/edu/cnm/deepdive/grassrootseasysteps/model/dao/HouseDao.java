@@ -27,7 +27,7 @@ public interface HouseDao {
   @Delete
   Single<Integer> delete(House... houses);
 
-  @Query("SELECT * FROM House ORDER BY date DESC")
+  @Query("SELECT * FROM House ORDER BY visit_date DESC")
   LiveData<List<House>> select();
 
 }

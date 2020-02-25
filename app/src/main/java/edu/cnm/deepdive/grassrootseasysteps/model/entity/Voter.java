@@ -1,5 +1,6 @@
 package edu.cnm.deepdive.grassrootseasysteps.model.entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
@@ -17,7 +18,7 @@ import java.util.Date;
         )
     }, indices = {
     @Index(value = "name", unique = true),
-    @Index(value = "house_id")
+    @Index(value = "house_id"),
 }
 
 )
@@ -30,13 +31,11 @@ public class Voter {
   @ColumnInfo(name = "house_id")
   private long houseId;
 
-  private double latitude;
-
-  private double longitude;
-
+  @NonNull
   @ColumnInfo(name = "time_stamp", index = true)
   private Date timeStamp = new Date();
 
+  @NonNull
   @ColumnInfo(collate = ColumnInfo.NOCASE)
   private String name;
 
@@ -69,22 +68,6 @@ public class Voter {
 
   public void setTimeStamp(Date timeStamp) {
     this.timeStamp = timeStamp;
-  }
-
-  public double getLatitude() {
-    return latitude;
-  }
-
-  public void setLatitude(double latitude) {
-    this.latitude = latitude;
-  }
-
-  public double getLongitude() {
-    return longitude;
-  }
-
-  public void setLongitude(double longitude) {
-    this.longitude = longitude;
   }
 
   public String getPoliticalAgenda() {
