@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b3c5568acec706e23909abdc9f856e21",
+    "identityHash": "d570acd2a29e5476163bb0a98cce9d15",
     "entities": [
       {
         "tableName": "House",
@@ -81,12 +81,13 @@
             "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_House_resident_name` ON `${TABLE_NAME}` (`resident_name`)"
           },
           {
-            "name": "index_House_latitute_longitude",
+            "name": "index_House_latitude_longitude",
             "unique": true,
             "columnNames": [
+              "latitude",
               "longitude"
             ],
-            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_House_latitute_longitude` ON `${TABLE_NAME}` (`longitude`)"
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_House_latitude_longitude` ON `${TABLE_NAME}` (`latitude`, `longitude`)"
           },
           {
             "name": "index_House_zip_code",
@@ -240,7 +241,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b3c5568acec706e23909abdc9f856e21')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd570acd2a29e5476163bb0a98cce9d15')"
     ]
   }
 }

@@ -11,7 +11,7 @@ import java.util.Date;
     indices = {
         @Index(value = "address", unique = true),
         @Index(value = "resident_name", unique = true),
-        @Index(value = {"latitute", "longitude"}, unique = true)
+        @Index(value = {"latitude", "longitude"}, unique = true)
     }
 )
 public class House {

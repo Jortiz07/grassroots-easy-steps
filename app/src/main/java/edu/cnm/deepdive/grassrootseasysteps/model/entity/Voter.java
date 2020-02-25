@@ -86,11 +86,11 @@ public class Voter {
     this.question = question;
   }
 
-  public boolean isSupport() {
+  public Boolean isSupport() {
     return support;
   }
 
-  public void setSupport(boolean support) {
+  public void setSupport(Boolean support) {
     this.support = support;
   }
 

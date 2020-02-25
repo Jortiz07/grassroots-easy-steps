@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `House`
 
 CREATE UNIQUE INDEX IF NOT EXISTS `index_House_address` ON `House` (`address`);
 
-CREATE UNIQUE INDEX IF NOT EXISTS `index_House_latitute_longitude` ON `House` (`longitude`);
+CREATE UNIQUE INDEX IF NOT EXISTS `index_House_latitude_longitude` ON `House` (`longitude`);
 
 CREATE UNIQUE INDEX IF NOT EXISTS `index_House_resident_name` ON `House` (`resident_name`);
 

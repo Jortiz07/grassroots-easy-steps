@@ -28,6 +28,12 @@
 
 
 
+
+    <meta-data
+      android:name="OnlineSearch.Key"
+      android:value="your-tomtom-key" />
+
+
   </application>
 
 </manifest>
