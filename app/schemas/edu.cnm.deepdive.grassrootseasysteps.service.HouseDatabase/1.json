@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "d3d976f4ca861927c8f745f48b7bc807",
+    "identityHash": "b3c5568acec706e23909abdc9f856e21",
     "entities": [
       {
         "tableName": "House",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`house_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `zip_code` INTEGER NOT NULL, `resident_name` TEXT COLLATE NOCASE, `party_affiliation` TEXT COLLATE NOCASE, `address` TEXT COLLATE NOCASE, `date` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`house_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `zip_code` INTEGER NOT NULL, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `resident_name` TEXT NOT NULL COLLATE NOCASE, `party_affiliation` TEXT NOT NULL COLLATE NOCASE, `address` TEXT NOT NULL COLLATE NOCASE, `visit_date` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -21,28 +21,40 @@
             "notNull": true
           },
           {
+            "fieldPath": "latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
             "fieldPath": "residentName",
             "columnName": "resident_name",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "partyAffiliation",
             "columnName": "party_affiliation",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "address",
             "columnName": "address",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
-            "fieldPath": "date",
-            "columnName": "date",
+            "fieldPath": "visitDate",
+            "columnName": "visit_date",
             "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -69,19 +81,35 @@
             "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_House_resident_name` ON `${TABLE_NAME}` (`resident_name`)"
           },
           {
+            "name": "index_House_latitute_longitude",
+            "unique": true,
+            "columnNames": [
+              "longitude"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_House_latitute_longitude` ON `${TABLE_NAME}` (`longitude`)"
+          },
+          {
             "name": "index_House_zip_code",
             "unique": false,
             "columnNames": [
               "zip_code"
             ],
             "createSql": "CREATE INDEX IF NOT EXISTS `index_House_zip_code` ON `${TABLE_NAME}` (`zip_code`)"
+          },
+          {
+            "name": "index_House_party_affiliation",
+            "unique": false,
+            "columnNames": [
+              "party_affiliation"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_House_party_affiliation` ON `${TABLE_NAME}` (`party_affiliation`)"
           }
         ],
         "foreignKeys": []
       },
       {
         "tableName": "Voter",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`voter_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `house_id` INTEGER NOT NULL, `coordinates` REAL NOT NULL, `time_stamp` INTEGER, `name` TEXT COLLATE NOCASE, `political_agenda` TEXT COLLATE NOCASE, `questions` TEXT COLLATE NOCASE, `support` INTEGER NOT NULL, `dog` INTEGER NOT NULL, `soliciting_sign` INTEGER NOT NULL, FOREIGN KEY(`house_id`) REFERENCES `House`(`house_id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`voter_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `house_id` INTEGER NOT NULL, `time_stamp` INTEGER NOT NULL, `name` TEXT NOT NULL COLLATE NOCASE, `political_agenda` TEXT COLLATE NOCASE, `question` TEXT COLLATE NOCASE, `support` INTEGER, `dog` INTEGER NOT NULL, `soliciting_sign` INTEGER NOT NULL, FOREIGN KEY(`house_id`) REFERENCES `House`(`house_id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
         "fields": [
           {
             "fieldPath": "voterId",
@@ -96,22 +124,16 @@
             "notNull": true
           },
           {
-            "fieldPath": "coordinates",
-            "columnName": "coordinates",
-            "affinity": "REAL",
-            "notNull": true
-          },
-          {
             "fieldPath": "timeStamp",
             "columnName": "time_stamp",
             "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "name",
             "columnName": "name",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "politicalAgenda",
@@ -120,8 +142,8 @@
             "notNull": false
           },
           {
-            "fieldPath": "questions",
-            "columnName": "questions",
+            "fieldPath": "question",
+            "columnName": "question",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -129,7 +151,7 @@
             "fieldPath": "support",
             "columnName": "support",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "dog",
@@ -218,7 +240,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'd3d976f4ca861927c8f745f48b7bc807')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b3c5568acec706e23909abdc9f856e21')"
     ]
   }
 }

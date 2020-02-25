@@ -46,7 +46,7 @@ public class Voter {
   private String question;
 
   @ColumnInfo(index = true)
-  private boolean support;
+  private Boolean support;
 
   @ColumnInfo(index = true)
   private boolean dog;

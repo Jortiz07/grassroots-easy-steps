@@ -2,13 +2,17 @@ CREATE TABLE IF NOT EXISTS `House`
 (
     `house_id`          INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     `zip_code`          INTEGER                           NOT NULL,
-    `resident_name`     TEXT COLLATE NOCASE,
-    `party_affiliation` TEXT COLLATE NOCASE,
-    `address`           TEXT COLLATE NOCASE,
-    `date`              INTEGER
+    `latitude`          REAL                              NOT NULL,
+    `longitude`         REAL                              NOT NULL,
+    `resident_name`     TEXT                              NOT NULL COLLATE NOCASE,
+    `party_affiliation` TEXT                              NOT NULL COLLATE NOCASE,
+    `address`           TEXT                              NOT NULL COLLATE NOCASE,
+    `visit_date`        INTEGER                           NOT NULL
 );
 
 CREATE UNIQUE INDEX IF NOT EXISTS `index_House_address` ON `House` (`address`);
+
+CREATE UNIQUE INDEX IF NOT EXISTS `index_House_latitute_longitude` ON `House` (`longitude`);
 
 CREATE UNIQUE INDEX IF NOT EXISTS `index_House_resident_name` ON `House` (`resident_name`);
 
@@ -18,12 +22,11 @@ CREATE TABLE IF NOT EXISTS `Voter`
 (
     `voter_id`         INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
     `house_id`         INTEGER                           NOT NULL,
-    `coordinates`      REAL                              NOT NULL,
-    `time_stamp`       INTEGER,
-    `name`             TEXT COLLATE NOCASE,
+    `time_stamp`       INTEGER                           NOT NULL,
+    `name`             TEXT                              NOT NULL COLLATE NOCASE,
     `political_agenda` TEXT COLLATE NOCASE,
-    `questions`        TEXT COLLATE NOCASE,
-    `support`          INTEGER                           NOT NULL,
+    `question`         TEXT COLLATE NOCASE,
+    `support`          INTEGER,
     `dog`              INTEGER                           NOT NULL,
     `soliciting_sign`  INTEGER                           NOT NULL,
     FOREIGN KEY (`house_id`) REFERENCES `House` (`house_id`) ON UPDATE NO ACTION ON DELETE RESTRICT
