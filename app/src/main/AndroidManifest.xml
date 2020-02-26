@@ -30,8 +30,8 @@
 
 
     <meta-data
-      android:name="OnlineSearch.Key"
-      android:value="your-tomtom-key" />
+      android:name="OnlineMap.Key"
+      android:value="awXrRGHM8SEDLaOJBHM88E8sbdXG8i8i" />
 
 
   </application>
