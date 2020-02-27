@@ -29,10 +29,6 @@
 
 
 
-    <meta-data
-      android:name="OnlineMap.Key"
-      android:value="awXrRGHM8SEDLaOJBHM88E8sbdXG8i8i" />
-
 
   </application>
 

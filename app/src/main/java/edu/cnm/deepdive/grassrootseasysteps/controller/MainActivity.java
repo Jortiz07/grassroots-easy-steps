@@ -13,8 +13,11 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import com.google.common.base.Optional;
 import com.tomtom.online.sdk.common.location.LatLng;
+import com.tomtom.online.sdk.map.ApiKeyType;
 import com.tomtom.online.sdk.map.Icon;
 import com.tomtom.online.sdk.map.MapFragment;
+import com.tomtom.online.sdk.map.MapProperties;
+import com.tomtom.online.sdk.map.MapProperties.Builder;
 import com.tomtom.online.sdk.map.MarkerBuilder;
 import com.tomtom.online.sdk.map.OnMapReadyCallback;
 import com.tomtom.online.sdk.map.Route;
@@ -38,10 +41,14 @@ import edu.cnm.deepdive.grassrootseasysteps.R;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback, TomtomMapCallback.OnMapLongClickListener {
 
+  private MapProperties properties;
+  private ApiKeyType keyType;
   private TomtomMap tomtomMap;
   private SearchApi searchApi;
   private RoutingApi routingApi;
@@ -173,7 +180,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private void handleApiError(Throwable e) {
       Toast.makeText(MainActivity.this, getString(R.string.api_response_error, e.getLocalizedMessage()), Toast.LENGTH_LONG).show();
     }
+
+    public static  void initMap () {
+      Map keys =  new Map<ApiKeyType, String>
+
+    }
     private void initTomTomServices() {
+      Map keys = new Map<ApiKeyType, String>
+      keys.put(ApiKeyType.MAPS_API_KEY, BuildConfig.API_KEY);
+      properties = new MapProperties.Builder().keys(keys).build();
       MapFragment mapFragment = (MapFragment) getSupportFragmentManager()
           .findFragmentById(R.id.mapFragment);
       mapFragment.getAsyncMap(this);
