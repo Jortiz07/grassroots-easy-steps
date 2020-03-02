@@ -181,12 +181,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
       Toast.makeText(MainActivity.this, getString(R.string.api_response_error, e.getLocalizedMessage()), Toast.LENGTH_LONG).show();
     }
 
-    public static  void initMap () {
-      Map keys =  new Map<ApiKeyType, String>
-
-    }
     private void initTomTomServices() {
-      Map keys = new Map<ApiKeyType, String>
+      Map<ApiKeyType, String> keys = new HashMap<>();
       keys.put(ApiKeyType.MAPS_API_KEY, BuildConfig.API_KEY);
       properties = new MapProperties.Builder().keys(keys).build();
       MapFragment mapFragment = (MapFragment) getSupportFragmentManager()
