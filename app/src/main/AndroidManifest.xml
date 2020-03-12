@@ -29,6 +29,12 @@
 
 
 
+    <meta-data
+      android:name="OnlineMaps.Key"
+      android:value="your-tomtom-key" />
+
+
+
 
   </application>
 
