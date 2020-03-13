@@ -1,5 +1,7 @@
 package edu.cnm.deepdive.grassrootseasysteps.controller;
 
+import static com.tomtom.online.sdk.map.MapConstants.DEFAULT_ZOOM_LEVEL;
+
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
@@ -18,8 +20,10 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.common.base.Optional;
 import com.tomtom.online.sdk.common.location.LatLng;
 import com.tomtom.online.sdk.common.util.LogUtils;
+import com.tomtom.online.sdk.location.Locations;
 import com.tomtom.online.sdk.map.BaseMarkerBalloon;
 import com.tomtom.online.sdk.map.Icon;
+import com.tomtom.online.sdk.map.MapConstants;
 import com.tomtom.online.sdk.map.MapFragment;
 import com.tomtom.online.sdk.map.MarkerBuilder;
 import com.tomtom.online.sdk.map.OnMapReadyCallback;
@@ -70,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     this.tomtomMap.setMyLocationEnabled(true);
     this.tomtomMap.addOnMapLongClickListener(this);
     this.tomtomMap.getMarkerSettings().setMarkersClustering(true);
+    this.tomtomMap.centerOnMyLocation();
   }
 
   @Override
