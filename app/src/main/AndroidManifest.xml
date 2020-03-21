@@ -3,6 +3,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   package="edu.cnm.deepdive.grassrootseasysteps">
 
+  <uses-permission android:name="android.permission.INTERNET"/>
+
   <application
     android:name=".GrassrootsApplication"
     android:allowBackup="false"
@@ -17,24 +19,19 @@
       android:label="@string/title_activity_main"
       android:name=".controller.MainActivity">
 
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN"/>
-        <category android:name="android.intent.category.LAUNCHER"/>
-      </intent-filter>
-
     </activity>
 
+    <activity android:name=".controller.LoginActivity">
+    <intent-filter>
+      <action android:name="android.intent.action.MAIN"/>
 
-
-
-
+      <category android:name="android.intent.category.LAUNCHER"/>
+    </intent-filter>
+    </activity>
 
     <meta-data
       android:name="OnlineMaps.Key"
       android:value="@string/tomtom_api_key" />
-
-
-
 
   </application>
 

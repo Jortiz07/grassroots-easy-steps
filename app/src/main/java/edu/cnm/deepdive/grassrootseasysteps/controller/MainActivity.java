@@ -2,9 +2,12 @@ package edu.cnm.deepdive.grassrootseasysteps.controller;
 
 import static com.tomtom.online.sdk.map.MapConstants.DEFAULT_ZOOM_LEVEL;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -48,6 +51,7 @@ import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchQu
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchResponse;
 import edu.cnm.deepdive.grassrootseasysteps.BuildConfig;
 import edu.cnm.deepdive.grassrootseasysteps.R;
+import edu.cnm.deepdive.grassrootseasysteps.service.GoogleSignInService;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -325,6 +329,30 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     initTomTomServices();
     initUIViews();
     setupUIViewListeners();
+  }
+
+  @Override
+  public boolean onCreateOptionsMenu(Menu menu) {
+    getMenuInflater().inflate(R.menu.options, menu);
+    return true;
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    boolean handled = true;
+    switch (item.getItemId()) {
+      case R.id.sign_out:
+        GoogleSignInService.getInstance().signOut()
+            .addOnCompleteListener((task) -> {
+              Intent intent = new Intent(this, LoginActivity.class);
+              intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+              startActivity(intent);
+            });
+        break;
+      default:
+        handled = super.onOptionsItemSelected(item);
+    }
+    return handled;
   }
 
 }

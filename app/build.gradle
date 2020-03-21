@@ -23,6 +23,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "CLIENT_ID", "\"235641090264-chh184a1k839ehogd469tbko6glirhcd.apps.googleusercontent.com\""
         buildConfigField "String", "API_KEY",
                 getProperty("$projectDir/../../../services/tomtom.properties", "api_key")
         resValue "string", "tomtom_api_key", getUnquotedProperty("$projectDir/../../../services/tomtom.properties", "api_key")
@@ -79,6 +80,9 @@ dependencies {
     // Gson (JSON parser) dependency
     implementation 'com.google.code.gson:gson:2.8.5'
 
+    // Google Sign-In dependency
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+
     // Retrofit (HTTP client) dependencies
     implementation 'com.squareup.okhttp3:logging-interceptor:3.14.2'
     def retrofit_version = "2.6.2"
@@ -89,14 +93,19 @@ dependencies {
     // Library required for search
     def tomtom_version = "2.4405"
     implementation "com.tomtom.online:sdk-search:$tomtom_version"
+
     // Library required for mapping
     implementation "com.tomtom.online:sdk-maps:$tomtom_version"
+
     // Library for alternate routing
     implementation "com.tomtom.online:sdk-routing:$tomtom_version"
+
     //extention library for map custom style and ui support
     implementation("com.tomtom.online:sdk-maps-ui-extensions:$tomtom_version")
+
     //extention library for rx-java2
     implementation("com.tomtom.online:sdk-maps-rx-extensions:$tomtom_version")
+
     //extention library for displaying static map
     implementation("com.tomtom.online:sdk-maps-static-image:$tomtom_version")
 
