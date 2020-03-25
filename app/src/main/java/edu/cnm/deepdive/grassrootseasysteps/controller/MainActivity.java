@@ -25,6 +25,7 @@ import com.tomtom.online.sdk.common.location.LatLng;
 import com.tomtom.online.sdk.common.util.LogUtils;
 import com.tomtom.online.sdk.location.Locations;
 import com.tomtom.online.sdk.map.BaseMarkerBalloon;
+import com.tomtom.online.sdk.map.CameraPosition;
 import com.tomtom.online.sdk.map.Icon;
 import com.tomtom.online.sdk.map.MapConstants;
 import com.tomtom.online.sdk.map.MapFragment;
@@ -46,6 +47,7 @@ import com.tomtom.online.sdk.search.SearchApi;
 import com.tomtom.online.sdk.search.data.alongroute.AlongRouteSearchQueryBuilder;
 import com.tomtom.online.sdk.search.data.alongroute.AlongRouteSearchResponse;
 import com.tomtom.online.sdk.search.data.alongroute.AlongRouteSearchResult;
+import com.tomtom.online.sdk.search.data.batch.BatchSearchQueryBuilder;
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchQuery;
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchQueryBuilder;
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchResponse;
@@ -69,16 +71,17 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
   private LatLng wayPointPosition;
   private Icon departureIcon;
   private Icon destinationIcon;
-  private ImageButton btnSearch;
-  private EditText editTextPois;
+  private ImageButton searchButton;
+  private EditText searchText;
 
   @Override
   public void onMapReady(@NonNull final TomtomMap tomtomMap) {
     this.tomtomMap = tomtomMap;
+    this.tomtomMap.centerOnMyLocationWithNorthUp();
     this.tomtomMap.setMyLocationEnabled(true);
     this.tomtomMap.addOnMapLongClickListener(this);
     this.tomtomMap.getMarkerSettings().setMarkersClustering(true);
-    this.tomtomMap.centerOnMyLocation();
+
   }
 
   @Override
@@ -209,8 +212,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
   }
 
   private void initUIViews() {
-    btnSearch = findViewById(R.id.btn_main_poisearch);
-    editTextPois = findViewById(R.id.edittext_main_poisearch);
+    searchButton = findViewById(R.id.btn_main_poisearch);
+    searchText = findViewById(R.id.edittext_main_poisearch);
     departureIcon = Icon.Factory
         .fromResources(MainActivity.this, R.drawable.ic_map_route_departure);
     destinationIcon = Icon.Factory
@@ -226,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
   private void setupUIViewListeners() {
     View.OnClickListener searchButtonListener = getSearchButtonListener();
-    btnSearch.setOnClickListener(searchButtonListener);
+    searchButton.setOnClickListener(searchButtonListener);
   }
 
   @NonNull
@@ -241,20 +244,21 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         if (isRouteSet()) {
           Optional<CharSequence> description = Optional.fromNullable(v.getContentDescription());
           if (description.isPresent()) {
-            editTextPois.setText(description.get());
+            searchText.setText(description.get());
             v.setSelected(true);
           }
           if (isWayPointPositionSet()) {
             tomtomMap.clear();
             drawRoute(departurePosition, destinationPosition);
           }
-          String textToSearch = editTextPois.getText().toString();
+          String textToSearch = searchText.getText().toString();
           if (!textToSearch.isEmpty()) {
             tomtomMap.removeMarkers();
             searchAlongTheRoute(route, textToSearch);
           }
         }
       }
+
 
       private boolean isRouteSet() {
         return route != null;
@@ -329,6 +333,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     initTomTomServices();
     initUIViews();
     setupUIViewListeners();
+
   }
 
   @Override
@@ -354,5 +359,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
     return handled;
   }
+
 
 }
