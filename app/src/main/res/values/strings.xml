@@ -14,5 +14,7 @@
   <string name="login_failure">Unable to sign in with provided credentials.</string>
   <string name="sign_out">Sign Out</string>
   <string name="new_search">New Search</string>
-  <string name="previous_searches">Previus Searches</string>
+  <string name="previous_searches">Previous Searches</string>
+  <string name="permissions_title">Permissions</string>
+  <string name="access_fine_location_explanation">This app needs permission to access your location for full functionality.</string>
 </resources>
