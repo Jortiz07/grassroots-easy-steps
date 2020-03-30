@@ -1,10 +1,13 @@
 ## User stories
 
-* The young college student who decided to help his friend collect signatures so he can qualify
- for the next election and is tired of wasting time figuring out the most efficient way to visit every address given to him.
+* The local grassroots organizer who wants to canvass the least represented areas so that the communities
+are well informed  and are then able to make an informed decision when casting their votes.
+
+* The outreach manager of a new non-profit who is trying to inform the members of the community about
+their organization so that they can take advantage of their free services.
  
-* The bread delivery woman who was given a new route in an area of town she is unfamiliar with and wants to avoid
- disappointing her clients on the very first day.
+* The member of the community who decided to run for office and needs to get enough signature to be on
+the ballot so that his community finally gets the representation that they deserve.
   
-* The young entrepreneur who decide to start delivering packages for amazon and wants to be able to be efficient, 
-meet deadlines, save gas, and be able to go home before the sun goes down.
+* The young entrepreneur who decide to start delivering packages for a big company and wants to be able
+ to be efficient, meet deadlines, save gas, and be able to go home before the sun goes down.
